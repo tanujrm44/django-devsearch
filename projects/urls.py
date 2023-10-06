@@ -2,9 +2,12 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.projects, name='projects'),
-    path('project/<str:pk>/', views.project, name='project'),
-    path('project/addproject', views.addproject, name='addproject'),
-    path('project/updateproject/<str:pk>/', views.updateproject, name='updateproject'),
-    path('project/deleteproject/<str:pk>/', views.deleteproject, name='deleteproject'),
+     path('', views.projects, name="projects"),
+    path('project/<str:pk>/', views.project, name="project"),
+
+    path('create-project/', views.createProject, name="create-project"),
+
+    path('update-project/<str:pk>/', views.updateProject, name="update-project"),
+
+    path('delete-project/<str:pk>/', views.deleteProject, name="delete-project"),
 ]

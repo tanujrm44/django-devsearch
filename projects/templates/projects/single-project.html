@@ -66,23 +66,20 @@
                         <input class="btn btn--sub btn--lg" type="submit" value="Add Review" />
                     </form>
                     {% else %}
-                    {% comment %}{% url 'login' %}?next={{request.path}}{% endcomment %}
-                    <a href="">Please login to leave a review</a>
+                    <a href="{% url 'login' %}?next={{request.path}}">Please login to leave a review</a>
                     {% endif %}
 
                     <div class="commentList">
                         {% for review in project.review_set.all %}
                         {% if review.body %}
                         <div class="comment">
-                          {% comment %}{% url 'user-profile' review.owner.id  %}{% endcomment %}
-                            <a href="">
+                            <a href="{% url 'user-profile' review.owner.id  %}">
                                 <img class="avatar avatar--md" src="{{review.owner.profile_image.url}}" alt="user" />
                             </a>
 
 
                             <div class="comment__details">
-                              {% comment %}{% url 'user-profile' review.owner.id  %}{% endcomment %}
-                                <a href=""
+                                <a href="{% url 'user-profile' review.owner.id  %}"
                                     class="comment__author">{{review.owner.name}}</a>
                                 <p class="comment__info">{{review.body|linebreaksbr}}</p>
                             </div>
